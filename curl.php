@@ -47,42 +47,6 @@
 		}
 		return $access_token;
 	}
-	//写入菜单
-	function menu(){
-		$jsonmenu = '
-			{
-				 "button":[
-				 {	
-					  "type":"click",
-					  "name":"今日歌曲",
-					  "key":"V1001_TODAY_MUSIC"
-				  },
-				  {
-					   "name":"菜单",
-					   "sub_button":[
-					   {	
-						   "type":"view",
-						   "name":"搜索",
-						   "url":"http://www.soso.com/"
-						},
-						{
-						   "type":"view",
-						   "name":"视频",
-						   "url":"http://v.qq.com/"
-						},
-						{
-						   "type":"click",
-						   "name":"赞一下我们",
-						   "key":"V1001_GOOD"
-						}]
-				   }]
-			}
-		';
-		$access_token = time_access_token();
-		$menuurl = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token={$access_token}";
-		$resalut = http_curl_request($menuurl,$jsonmenu);
-		return $resalut;
-	}
 	
 	//微信数组转json串中文编码 
 	function my_json_encode($type,$p){
